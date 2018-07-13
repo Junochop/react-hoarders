@@ -7,14 +7,16 @@ const getRequest = () => {
     axios
       .get(`${constants.firebaseConfig.databaseURL}/allStuff.json`)
       .then(res => {
-        const fishes = [];
+        const items = [];
         if (res.data !== null) {
           Object.keys(res.data).forEach(fbKey => {
             res.data[fbKey].id = fbKey;
-            fishes.push(res.data[fbKey]);
+            items.push(res.data[fbKey]);
           });
         }
-        resolve(fishes);
+        console.err(items);
+        resolve(items);
+
       })
       .catch(err => {
         reject(err);

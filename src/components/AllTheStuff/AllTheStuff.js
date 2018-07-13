@@ -3,7 +3,7 @@ import React from 'react';
 import itemRequests from '../../firebaseRequests/item';
 import Items from '../../components/Items/Items';
 
-class Inventory extends React.Component {
+class AllTheStuff extends React.Component {
   state = {
     items: [],
   }
@@ -18,7 +18,7 @@ class Inventory extends React.Component {
       });
   }
   render () {
-    const itemComponents = this.state.fishes.map((item) => {
+    const itemComponents = this.state.items.map((item) => {
       return (
         <Items
           key={item.id}
@@ -29,7 +29,7 @@ class Inventory extends React.Component {
     });
     return (
       <div className="Inventory col-xs-12">
-        <h1>Inventory</h1>
+        <h1>AllTheStuff</h1>
         <ul className="items">
           {itemComponents}
         </ul>
@@ -39,4 +39,4 @@ class Inventory extends React.Component {
   }
 }
 
-export default Inventory;
+export default AllTheStuff;

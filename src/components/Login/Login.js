@@ -9,7 +9,7 @@ class Login extends React.Component {
   state = {
     user: {
       email: 'test123@aol.com',
-      password: '123456',
+      password: '',
     },
   };
 
@@ -19,7 +19,7 @@ class Login extends React.Component {
     authRequests
       .loginUser(user)
       .then(() => {
-        this.props.history.push('/orders');
+        this.props.history.push('/mine');
       })
       .catch(error => {
         console.error('there was an error in registering', error);

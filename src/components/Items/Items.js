@@ -7,21 +7,17 @@ class Items extends React.Component {
   render () {
     const { details } = this.props;
 
-    const isAvailable = details.status === 'available';
-    const image = require(`${details.image}`);
+    const image = require(`${details.itemImage}`);
     return (
-      <li className="Fish">
-        <img src={image} alt={details.name} />
+      <li className="Item">
+        <img src={image} alt={details.itemImage} />
         <h3 className="name">
-          {details.name}
-          <span className="price">{details.price}></span>
+          {details.itemName}
         </h3>
-        <p>{details.desc}</p>
+        <p>{details.itemDescription}</p>
         <button
-          disabled={!isAvailable}
           onClick={this.addClickEvent}
         >
-          {isAvailable ? 'Add to Order!' : 'SOld Out!'}
         </button>
       </li>
 
