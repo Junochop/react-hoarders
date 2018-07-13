@@ -5,7 +5,7 @@ import constants from '../constants';
 const getRequest = () => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`${constants.firebaseConfig.databaseURL}/allStuff.json`)
+      .get(`${constants.firebaseConfig.databaseURL}/allStuf.json`)
       .then(res => {
         const items = [];
         if (res.data !== null) {
@@ -14,7 +14,7 @@ const getRequest = () => {
             items.push(res.data[fbKey]);
           });
         }
-        console.err(items);
+        console.error(items, 'hi');
         resolve(items);
 
       })
