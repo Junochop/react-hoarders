@@ -2,6 +2,7 @@ import React from 'react';
 import './Items.css';
 import garageRequests from '../../firebaseRequests/garage';
 import authRequests from '../../firebaseRequests/auth';
+import itemRequests from '../../firebaseRequests/item';
 
 class Items extends React.Component {
   addClickEvent = () => {
@@ -28,17 +29,22 @@ class Items extends React.Component {
   }
 
   deleteNewGarage = () => {
+    console.error(this.props);
     garageRequests
-      .deleteRequest(this.state)
+      .deleteRequest(this.props.details.id)
       .then(() => {
-        this.props.redirectToGarage();
+        itemRequests
+          .getRequestGarage()
+          .then((items) => {
+            this.props.updateState(items);
+          });
       })
       .catch((err) => {
         console.error('error in post', err);
       });
   }
 
-  render() {
+  render () {
     const { details } = this.props;
     console.error('bb', this.props.details);
 

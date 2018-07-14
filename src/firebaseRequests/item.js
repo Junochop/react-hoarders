@@ -36,7 +36,6 @@ const getRequestGarage = () => {
             items.push(res.data[fbKey]);
           });
         }
-        console.error(items, 'hi');
         resolve(items);
 
       })
