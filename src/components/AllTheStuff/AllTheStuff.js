@@ -43,7 +43,7 @@ class AllTheStuff extends React.Component {
 
   componentDidMount () {
     itemRequests
-      .getRequest()
+      .getRequestAll()
       .then((items) => {
         this.setState({ items });
       })
@@ -58,7 +58,7 @@ class AllTheStuff extends React.Component {
           key={item.id}
           details={item}
           redirectToGarage={this.redirectToGarage}
-
+          flag='FromAllTheStuff'
         />
       );
     });
