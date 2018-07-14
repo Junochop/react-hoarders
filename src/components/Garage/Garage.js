@@ -20,6 +20,13 @@ class Garage extends React.Component {
       });
   }
 
+  updateState = (newItems) => {
+    this.setState({items: newItems});
+
+  }
+
+
+
   // renderGarage = (key) => {
   //   const item = this.props.items.find(x => x.id === key);
   //   const count = this.props.item[key];
@@ -48,6 +55,7 @@ class Garage extends React.Component {
           key={item.id}
           details={item}
           flag='FromAllGarage'
+          updateState={this.updateState}
         />
       );
     });
