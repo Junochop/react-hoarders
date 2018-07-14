@@ -5,11 +5,12 @@ import firebase from 'firebase';
 import Navbar from '../components/Navbar/Navbar.js';
 import AllTheStuff from '../components/AllTheStuff/AllTheStuff.js';
 import Register from '../components/Register/Register.js';
-// import MyStuff from '../components/MyStuff/MyStuff.js';
+import Garage from '../components/Garage/Garage.js';
 // import SingleItem from '../components/SingleItem/SingleItem.js';
 import fbConnection from '../firebaseRequests/connection';
+// import New from '../components/New/New.js';
 
-fbConnection();
+fbConnection ();
 
 // import './App.css';
 
@@ -98,6 +99,16 @@ class App extends Component {
                     authed={this.state.authed}
                     component={Login}
                   />
+                  <PrivateRoute
+                    path="/garage"
+                    authed={this.state.authed}
+                    component={Garage}
+                  />
+                  {/* <PrivateRoute
+                    path="/new"
+                    authed={this.state.authed}
+                    component={New}
+                  /> */}
                 </Switch>
               </div>
             </div>

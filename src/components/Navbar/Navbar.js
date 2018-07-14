@@ -33,7 +33,7 @@ class Navbar extends React.Component {
                       <Link to="/AllTheStuff">AllTheStuff</Link>
                     </li>
                     <li>
-                      <Link to="/mine">My Stuff</Link>
+                      <Link to="/garage">Garage</Link>
                     </li>
                     <li className="navbar-form">
                       <button
