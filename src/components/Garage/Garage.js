@@ -9,7 +9,7 @@ class Garage extends React.Component {
     items: [],
   }
 
-  componentDidMount () {
+  componentDidMount() {
     itemRequests
       .getRequestGarage()
       .then((items) => {
@@ -21,32 +21,14 @@ class Garage extends React.Component {
   }
 
   updateState = (newItems) => {
-    this.setState({items: newItems});
+    this.setState({ items: newItems });
 
   }
 
+  redirectViewDetail = (id) => {
+    this.props.history.push(`/View/${id}`);
+  }
 
-
-  // renderGarage = (key) => {
-  //   const item = this.props.items.find(x => x.id === key);
-  //   const count = this.props.item[key];
-
-  //   const xClickFunction = () => {
-  //     this.props.removeFromGarage(key);
-  //   };
-  //   return (
-  //     <li
-  //       key={key}
-  //       className="text-left"
-  //     >
-  //       <div className="col-xs-2">{count} lbs</div>
-  //       <div className="col-xs-5">{item.itemName}</div>
-  //       <div className="col-xs-2">
-  //         <button className="btn btn-default" onClick={xClickFunction}>&times;</button>
-  //       </div>
-  //     </li>
-  //   );
-  // }
   render () {
 
     const itemComponents = this.state.items.map((item) => {
@@ -56,10 +38,11 @@ class Garage extends React.Component {
           details={item}
           flag='FromAllGarage'
           updateState={this.updateState}
+          redirectViewDetail={this.redirectViewDetail}
         />
       );
     });
-    console.error('ll',this.state.items);
+    console.error('ll', this.state.items);
     return (
       <div className="Garage">
         {itemComponents}

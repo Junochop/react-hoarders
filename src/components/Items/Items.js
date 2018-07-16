@@ -10,6 +10,12 @@ class Items extends React.Component {
 
   }
 
+  viewDetail = () => {
+    const id = this.props.details.id;
+    this.props.redirectViewDetail(id);
+
+  }
+
   state = {
     itemDescription: this.props.details.itemDescription,
     itemImage: this.props.details.itemImage,
@@ -58,13 +64,13 @@ class Items extends React.Component {
         </h3>
         <p>{details.itemDescription}</p>
         {this.state.flag === 'FromAllTheStuff' ?
-          (<button className="btn btn-danger button"
-            onClick={this.saveNewGarage}
-          >add me
-        </button>) : (<button className="btn btn-danger button"
-            onClick={this.deleteNewGarage}
-          >Delete
-        </button>
+          (<button className="btn btn-danger button" onClick={this.saveNewGarage}>add me</button>)
+          :
+          (
+            <div>
+              <button className="btn btn-danger button" onClick={this.deleteNewGarage}>Delete</button>
+              <button className="btn btn-danger button" onClick={this.viewDetail}>View</button>
+            </div>
           )}
       </li>
 

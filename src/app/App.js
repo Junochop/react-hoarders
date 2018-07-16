@@ -8,7 +8,7 @@ import Register from '../components/Register/Register.js';
 import Garage from '../components/Garage/Garage.js';
 // import SingleItem from '../components/SingleItem/SingleItem.js';
 import fbConnection from '../firebaseRequests/connection';
-// import New from '../components/New/New.js';
+import View from '../components/View/View.js';
 
 fbConnection ();
 
@@ -104,11 +104,11 @@ class App extends Component {
                     authed={this.state.authed}
                     component={Garage}
                   />
-                  {/* <PrivateRoute
-                    path="/new"
+                  <PrivateRoute
+                    path="/View/:id"
                     authed={this.state.authed}
-                    component={New}
-                  /> */}
+                    component={View}
+                  />
                 </Switch>
               </div>
             </div>
